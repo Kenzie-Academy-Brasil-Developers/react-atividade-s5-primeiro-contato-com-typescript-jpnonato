@@ -1,5 +1,3 @@
-import React from 'react';
-import logo from './logo.svg';
 import {Card} from './components/Card'
 import {Input} from './components/Input'
 import {useState} from 'react';
@@ -11,15 +9,17 @@ interface Person {
   hobby: string
 }
 
+
+
 function App() {
 
   const [name,setName] = useState('')
   const [age,setAge] = useState('')
   const [hobby,setHobby] = useState('')
-  const [list,setList] = useState<Person[]>([])
+  const [list,setList] = useState<Person[]>([])   
 
   const handleClick = () => {
-    const newPerson = { name: name, age: age, hobby: hobby }
+    const newPerson: Person = { name: name, age: age, hobby: hobby }
 
     setList([...list, newPerson])
     
@@ -32,7 +32,7 @@ function App() {
         <Input   label={'Nome'} placeholder={'seu nome'} onChange={(e) => setName(e.target.value)}/>
         <Input   label={'Idade'} placeholder={'sua idade'} onChange={(e) => setAge(e.target.value)}/>
         <Input   label={'Hobby'} placeholder={'seu hobby'} onChange={(e) => setHobby(e.target.value)}/>
-        <button onClick={handleClick }> Registrar </button>
+        <button onClick={handleClick }> Registrar </button> 
       
         {console.log(list)}
       <section className='card_list'>
